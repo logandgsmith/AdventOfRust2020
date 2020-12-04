@@ -4,7 +4,7 @@
 // Regex matching! It was interesting to see how Rust handled this,
 // and from seeing it, I am a big fan of RegexSets now :)
 use regex::RegexSet;
-use advent_of_rust_2020::read_lines;
+use advent_of_rust_2020::*;
 
 fn main() {
     let mut valid_passwords: i32 = 0;
@@ -36,12 +36,12 @@ fn main() {
                     
                     // Check if all required fields present
                     if matches.len() == 7 {
-                        println!("Valid:   {}", complete_line);
+                        valid_line(&complete_line);
                         valid_passwords += 1;
                     }
                     // Invalid Number of matches
                     else {
-                        println!("Invalid: {}", complete_line);
+                        invalid_line(&complete_line);
                     }
                     // Reset line to blank string
                     complete_line = "".to_string();
@@ -55,6 +55,6 @@ fn main() {
     }
 
     // Print final result
-    println!("\nDay 4 Part 1");
+    println!("\n~~ Day 4 Part 1 ~~");
     println!("Number of valid passports: {}", valid_passwords);
 }

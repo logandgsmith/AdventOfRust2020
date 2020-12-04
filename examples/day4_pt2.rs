@@ -5,7 +5,7 @@
 // matching the beginning of the string only, meaning if ectra letters
 // were appended, we would match regardless.
 use regex::RegexSet;
-use advent_of_rust_2020::read_lines;
+use advent_of_rust_2020::*;
 
 fn main() {
     // Keep track of valid passports spotted
@@ -41,11 +41,11 @@ fn main() {
                     // Check if all required fields present
                     if matches.len() == 7 {
                         valid_passports += 1;
-                        println!("\u{001B}[32mValid:  {}\u{001B}[0m", complete_line);
+                        valid_line(&complete_line);
                     }
                     // Invalid number of matches
                     else {
-                        println!("\u{001B}[31mInvalid: {}\u{001B}[0m", complete_line);
+                        invalid_line(&complete_line);
                     }
                     // Reset the line to a blank string
                     complete_line = "".to_string();
@@ -59,6 +59,6 @@ fn main() {
     }
 
     // Print final result
-    println!("\nDay 4 Part 1");
+    println!("\n~~ Day 4 Part 1 ~~");
     println!("Number of valid passports: {}", valid_passports);
 }
