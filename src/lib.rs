@@ -14,7 +14,7 @@ where P: AsRef<Path>, {                     // AsRef dereferences to filename to
 
 // Helper function to print out a green line and declare it valid
 pub fn valid_line(line: &str) {
-    println!("\u{001B}[32mValid:  {}\u{001B}[0m", line);
+    println!("\u{001B}[32mValid:   {}\u{001B}[0m", line);
 }
 
 // Helper function to print out a red line and declare it valid
