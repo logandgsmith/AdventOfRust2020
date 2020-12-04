@@ -1,6 +1,8 @@
-// Advent of Code Day 3 Part 1 (12/03/20)
+// Advent of Code Day 4 Part 1 (12/04/20)
 // Written in Rust!
 // Author: Logan D.G. Smith
+// Regex matching! It was interesting to see how Rust handled this,
+// and from seeing it, I am a big fan of RegexSets now :)
 use regex::RegexSet;
 use advent_of_rust_2020::read_lines;
 
@@ -19,6 +21,7 @@ fn main() {
         //r"cid:", // optional
     ]).unwrap();
 
+    // Again using the read_lines function from day 1 to read the file
     if let Ok(lines) = read_lines("inputs/day4input.txt") {
         let mut complete_line = "".to_string();
         // Read line by line
@@ -36,11 +39,14 @@ fn main() {
                         println!("Valid:   {}", complete_line);
                         valid_passwords += 1;
                     }
+                    // Invalid Number of matches
                     else {
                         println!("Invalid: {}", complete_line);
                     }
+                    // Reset line to blank string
                     complete_line = "".to_string();
                 }
+                // Concat lines
                 else {
                    complete_line = format!("{} {}", complete_line, entry);
                 }
@@ -48,6 +54,7 @@ fn main() {
         }
     }
 
+    // Print final result
     println!("\nDay 4 Part 1");
     println!("Number of valid passports: {}", valid_passwords);
 }
